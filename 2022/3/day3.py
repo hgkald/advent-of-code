@@ -1,9 +1,9 @@
 def getPriority(char): 
-    priority = ord(char)
-    if priority > 90: 
-        priority = priority-96
-    else: #uppercase
-        priority = priority-38
+    ordChar = ord(char)
+    if ordChar >= ord("a") and ordChar <= ord("z"): 
+        priority = ordChar-ord("a")+1
+    elif ordChar >= ord("A") and ordChar <= ord("Z"): 
+        priority = ordChar-ord("A")+27
 
     #print(charInBoth,priority)
     return priority 
@@ -16,45 +16,21 @@ with open("input","r") as infile:
         lines.append(line) 
 
         halfIndex = int(len(line)/2)
-        a = line[:halfIndex]
-        b = line[halfIndex:]
+        a = set(line[:halfIndex].strip())
+        b = set(line[halfIndex:].strip())
+        charInBoth = a & b
 
-        #print(a,b)
-        charInBoth = None
-        for char1 in a: 
-            for char2 in b: 
-                #print(char1,  char2)
-                if char1 == char2: 
-                    charInBoth = char1 
-                    break
-            if charInBoth is not None: 
-                break 
-
-        sum += getPriority(charInBoth)
+        sum += getPriority(charInBoth.pop())
 print(sum)
 
 #PART 2
 sum = 0
 for i in range(len(lines)):
     if (i+1) % 3 == 0:
-        a = lines[i-2]
-        b = lines[i-1]
-        c = lines[i] 
+        a = set(lines[i-2].strip())
+        b = set(lines[i-1].strip())
+        c = set(lines[i].strip())
+        charInAll = (a & b) & c
 
-        possibleChars = []
-        for char1 in a: 
-            for char2 in b: 
-                 if char1 == char2: 
-                    possibleChars.append(char1) 
-
-        charInAll = None
-        for char in possibleChars: 
-            for char3 in c: 
-                if char == char3: 
-                    charInAll = char 
-                    break
-            if charInAll is not None: 
-                break 
-        
-        sum += getPriority(charInAll)
+        sum += getPriority(charInAll.pop())
 print(sum) 
