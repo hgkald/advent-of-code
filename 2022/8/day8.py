@@ -1,43 +1,54 @@
 def isVisible(row,col): 
-    print("  ",grid[row-1][col])
-    print(grid[row][col-1]," ",grid[row][col]," ",grid[row][col+1])
-    print("  ",grid[row+1][col],"\n")
+    '''
+    print(row,col,rows[row][:col],cols[col][row+1:])
+    '''
 
-    if grid[row][col] > grid[row-1][col]:
+    val = rows[row][col]
+    if val > max(rows[row][:col]):
         return True 
-    elif grid[row][col] > grid[row+1][col]:
+    elif val > max(rows[row][col+1:]):
         return True 
-    elif grid[row][col] > grid[row][col-1]:
+    elif val > max(cols[col][:row]):
         return True 
-    elif grid[row][col] > grid[row][col+1]:
+    elif val > max(cols[col][row+1:]):
         return True
+
     else:
         print("false\n")
         return False 
 
-grid = [[]]
+rows = [[]]
+cols = [[]]
 numRows, numCols = 0, 0
 
-with open("input","r") as infile: 
+with open("input","r") as infile:
+    col = 0
     while True: 
         tree = infile.read(1)
         if not tree:
-            grid.pop()
+            rows.pop()
             break 
         elif tree=="\n": 
-            grid.append([])
-        else: 
-            grid[-1].append(tree)
+            rows.append([])
+            col = 0
 
-    numRows = len(grid)
-    numCols = len(grid[0])
+            if numCols == 0:
+                numCols = len(rows[0])
+        else: 
+            rows[-1].append(int(tree))
+
+            if numCols == 0:
+                cols.append([])
+            cols[col].append(int(tree)) 
+            col += 1
+
+    numRows = len(rows)
 
 visibleTrees = numRows*2+numCols*2-4
 for i in range(1,numRows-1):
     for j in range(1,numCols-1):
         if isVisible(i,j): 
             visibleTrees += 1
-
 print(visibleTrees)
 
 
