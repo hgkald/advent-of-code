@@ -6,19 +6,7 @@ def main():
     maps = []
 
     for line in stdin: 
-        if line == 'seed-to-soil map:\n':
-            maps.append(_read_map())
-        if line == 'soil-to-fertilizer map:\n': 
-            maps.append(_read_map())
-        if line == 'fertilizer-to-water map:\n':
-            maps.append(_read_map())
-        if line == 'water-to-light map:\n': 
-            maps.append(_read_map())
-        if line == 'light-to-temperature map:\n': 
-            maps.append(_read_map())
-        if line == 'temperature-to-humidity map:\n': 
-            maps.append(_read_map())
-        if line == 'humidity-to-location map:\n': 
+        if 'map' in line: 
             maps.append(_read_map())
 
     location = {}
