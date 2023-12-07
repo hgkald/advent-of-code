@@ -1,7 +1,12 @@
 from sys import stdin 
 
 class CardType:
-    types = [ 'A', 'K', 'Q', 'J', 'T', '9', '8', '7', '6', '5', '4', '3', '2']
+    #Part 1 
+    #types = [ 'A', 'K', 'Q', 'J', 'T', '9', '8', '7', '6', '5', '4', '3', '2']
+    
+    #Part 2
+    types = [ 'A', 'K', 'Q', 'T', '9', '8', '7', '6', '5', '4', '3', '2', 'J']
+    
     size = len(types)
     rank = dict(zip(types, list(range(size))))
 
@@ -13,23 +18,24 @@ class HandType:
             "Two pair": 4,
             "One pair": 5,
             "High card": 6 }
+    size = len(types)
 
-    def __init__(self, c_type):
-        self.str = c_type
-        self.int = self.types[c_type]
+    def __init__(self, handtype):
+        self.str = handtype
+        self.int = self.types[handtype]
 
     def __str__(self):
         return self.str 
     
 class Hand: 
     size = 5
-    def __init__(self, cards, bid):
+    def __init__(self, cards, bid, joker=False):
         self.hand = cards
         self.bid = bid
         self.type = None
-        self._assign_type()
+        self._assign_type(joker)
 
-    def _assign_type(self):
+    def _assign_type(self, joker=False):
         cards = {}
         for card in self.hand:
             if card not in cards:  
@@ -39,20 +45,39 @@ class Hand:
 
         if len(cards)==1: 
             self.type = HandType("Five of a kind")
-        elif len(cards)==2: 
-            if 4 in cards.values(): 
+        elif 4 in cards.values():
+            if joker and 'J' in cards:
+                self.type = HandType("Five of a kind")
+            else:
                 self.type = HandType("Four of a kind")
-            elif set(cards.values())=={3,2}:
+        elif set(cards.values())=={3,2}:
+            if joker and 'J' in cards:
+                self.type = HandType("Five of a kind")
+            else:
                 self.type = HandType("Full house")
-        elif len(cards)==3: 
-            if 3 in cards.values() and 1 in cards.values():
+        elif set(cards.values())=={3,1}:
+            if joker and 'J' in cards:
+                self.type = HandType("Four of a kind")
+            else:
                 self.type = HandType("Three of a kind")
-            elif list(cards.values()).count(2) == 2: 
+        elif list(cards.values()).count(2) == 2: 
+            if joker and 'J' in cards:
+                if cards['J']==1: 
+                    self.type = HandType("Full house")
+                else: 
+                    self.type = HandType("Four of a kind")
+            else:
                 self.type = HandType("Two pair")
-        elif len(cards)==4 and 2 in cards.values() and list(cards.values()).count(1)==3:
-            self.type = HandType("One pair")
+        elif 2 in cards.values() and list(cards.values()).count(1)==3:
+            if joker and 'J' in cards:
+                self.type = HandType("Three of a kind")
+            else:
+                self.type = HandType("One pair")
         elif len(cards)==5:
-            self.type = HandType("High card")
+            if joker and 'J' in cards:
+                self.type = HandType("One pair")
+            else:
+                self.type = HandType("High card")
 
     def __str__(self):
         return self.hand + " (" + self.type.str + ")"
@@ -66,12 +91,10 @@ def _bucket_sort(hands, k):
         bucket = CardType.rank[h.hand[k]]
         type_buckets[bucket].append(h)
 
-    #print(type_buckets)
     hands = []
     for b in type_buckets: 
         if b: hands += b
 
-    #print(hands)
     return hands
 
 def radix_sort(hands):
@@ -80,10 +103,10 @@ def radix_sort(hands):
     return hands
         
 def main():
-    type_buckets = [ [] for x in range(7) ]
+    type_buckets = [ [] for x in range(HandType.size) ]
     for line in stdin: 
         line = line.split()
-        hand = Hand(line[0], int(line[1]))
+        hand = Hand(line[0], int(line[1]), True)
         type_buckets[hand.type.int].append(hand)
 
     hands = [] 
