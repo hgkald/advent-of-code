@@ -10,11 +10,22 @@ def main():
             maps.append(_read_map())
 
     location = {}
-    for seed in seeds: 
-        location[seed] = _find_location(seed, maps)
-
+    
+    #PART 1
+    #for seed in seeds: 
+    #    location[seed] = _find_location(seed, maps)
     #print(location)
-    print(min(location.values()))
+    #print(min(location.values()))
+
+    #PART 2
+    min_location = float('inf')
+    for i in range(0,len(seeds),2): 
+        for seed in range(seeds[i],seeds[i]+seeds[i+1],1): 
+            location = _find_location(seed, maps)
+            if location < min_location: 
+                min_location = location
+    print(min_location)
+
 
 def _get_value(x, hashmap): 
     for range_ in hashmap: 
