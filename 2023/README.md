@@ -1,5 +1,11 @@
 # [AoC 2023](https://adventofcode.com/2023)
 
+## [Day 8](https://adventofcode.com/2023/day/8) :star:
+
+Another fairly straightforward one for part 1 and some kind of optimization problem (I think?) for part 2. I tried to do something fancy with node objects in part 1 in case there would be more complicated graph traversals for part 2, but the problem statement didn't change all that much. So I changed it to the simpler thing. 
+
+Currently part 2 seems to work on the small test case, but it's taking way too much time to run on the bigger test input.
+
 ## [Day 7](https://adventofcode.com/2023/day/7) :star: :star:
 
 Today's problem seemed to involve a bit of sorting, and since I really need to be reviewing for my data structures exam, I thought I would try to implement a reasonable sorting algorithm for it. 
