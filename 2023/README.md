@@ -1,16 +1,24 @@
 # [AoC 2023](https://adventofcode.com/2023)
 
+## [Day 9](https://adventofcode.com/2023/day/9) :star: :star:
+
+When I saw this problem I thought immediately that it could be done with one recursive function, though I was wooly on the details. Even now, just after writing it from my own head from scratch, it still feels a bit wibbly-wobbly, timey-wimey (which is kind of how I feel writing recursive functions a lof of the time). They just kind of _happen_. 
+
+One I got the first part done, the second part was pretty trivial (just switching some signs around basically). 
+
+Because of some nasty winter flu and an exam I just wrote this morning (one more to go...), I actually completed this one on the 13th, so I'm rather behind, but will see how much I can do for the rest of the month.
+
 ## [Day 8](https://adventofcode.com/2023/day/8) :star:
 
-Another fairly straightforward one for part 1 and some kind of optimization problem (I think?) for part 2. I tried to do something fancy with node objects in part 1 in case there would be more complicated graph traversals for part 2, but the problem statement didn't change all that much. So I changed it to the simpler thing. 
+Another fairly straightforward one for part 1 and some kind of optimization problem (I think?) for part 2. I tried to do something fancy with node objects in part 1 in case there would be more complicated graph traversals for part 2, but the problem statement didn't change all that much. So I changed it to the simpler thing (an adjacency list as a dict). 
 
 Currently part 2 seems to work on the small test case, but it's taking way too much time to run on the bigger test input.
 
 ## [Day 7](https://adventofcode.com/2023/day/7) :star: :star:
 
-Today's problem seemed to involve a bit of sorting, and since I really need to be reviewing for my data structures exam, I thought I would try to implement a reasonable sorting algorithm for it. 
+Today's problem seemed to involve a bit of sorting, and since I really need to be reviewing for my data structures exam, I thought I would try to implement one of the sorting algorithms we learned this semester. 
 
-After a cursory glance it seemed like radix/bucket sort was the way to go. It took some time to get part 1 working (more code, more problems...), and part 2 creates a bit of a branching nightmare when determining the type of hand. I'm sure it can be refactored a bit more elegantly, but I think this is enough excitement for one day...
+After a cursory glance it seemed like a radix/bucket sort was a reasonable way to go. It took some time to get part 1 working (more code, more problems...), and part 2 creates a bit of a branching nightmare when determining the type of hand. I'm sure it can be refactored a bit more elegantly, but I think this is enough excitement for one day...
 
 ## [Day 6](https://adventofcode.com/2023/day/6) :star: :star:
 
@@ -20,7 +28,7 @@ It starts with holding the boat for 1 ms and increases the time until it finds t
 
 ## [Day 5](https://adventofcode.com/2023/day/5) :star:
 
-This one started out quite fun, actually, but I haven't found the time to properly look at part 2. Part 1 went off smoothly with the help of a few hashmaps, but part 2 can't be solved the same way in any reasonable amount of time. I left the process running for an hour while I was cramming for exams, but no dice. Need to find a cleverer way to go about it, clearly. 
+This one started out quite fun, actually, but I haven't found the time to properly look at part 2. Part 1 went off smoothly with the help of a few hashmaps, but part 2 can't be solved the same way in any reasonable amount of time. I left the process running for an hour while I was cramming for exams, but no dice. 
 
 ## [Day 4](https://adventofcode.com/2023/day/4) :star:
 
