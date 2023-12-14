@@ -2,7 +2,7 @@
 
 ## [Day 9](https://adventofcode.com/2023/day/9) :star: :star:
 
-When I saw this problem I thought immediately that it could be done with one recursive function, though I was wooly on the details. Even now, just after writing it from my own head from scratch, it still feels a bit wibbly-wobbly, timey-wimey (which is kind of how I feel writing recursive functions a lof of the time). They just kind of _happen_. 
+When I saw this problem I thought immediately that it could be done with one recursive function, though I was wooly on the details. Even now, just after writing it from my own head from scratch, it still feels a bit wibbly-wobbly, timey-wimey (which is kind of how I feel writing recursive functions a lot of the time). 
 
 One I got the first part done, the second part was pretty trivial (just switching some signs around basically). 
 
