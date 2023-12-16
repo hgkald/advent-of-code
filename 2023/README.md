@@ -1,5 +1,14 @@
 # [AoC 2023](https://adventofcode.com/2023)
 
+## [Day 15](https://adventofcode.com/2023/day/15) :star: :star:
+
+I'm now done my exams! And still a few days behind (I'm technically doing this on the 16th). After skimming through the other problems, decided to do day 15 today, since part 1 at least seemed pretty straightforward. That was indeed the case, though part 2 was less fun. 
+
+It wasn't exactly hard, but it was finicky, and I was hemming and hawing about which data structure to use (linked lists? Hash maps with hash maps? Multiple sets of hash maps? Plain old arrays?). At first linked lists seemed like the obvious thing to use, but deletion and more importantly indexing had to be supported (or at least a way to find a certain value without having to traverse the whole list, because I had a feeling that would be a Pretty Bad Idea). Eventually I ended up using a hashmap of arrays, where I stored the indexes of the items in the arrays in _another_ hashmap so they could be found easier. I'm getting confused just writing it, but it _was_ kind of confusing. Oh, and deletions were just setting the array values to None so as not to mess up the indexing. I'm sure someone else has done this in like three lines in Haskell or something, but I am not one of those people...
+
+Anyway, the point is that it works, so that's that for today. 
+
+
 ## [Day 9](https://adventofcode.com/2023/day/9) :star: :star:
 
 When I saw this problem I thought immediately that it could be done with one recursive function, though I was wooly on the details. Even now, just after writing it from my own head from scratch, it still feels a bit wibbly-wobbly, timey-wimey (which is kind of how I feel writing recursive functions a lot of the time). 
