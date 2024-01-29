@@ -2,20 +2,22 @@
 
 ## [Day 15](https://adventofcode.com/2023/day/15) :star: :star:
 
-I'm now done my exams! And still a few days behind (I'm technically doing this on the 16th). After skimming through the other problems, decided to do day 15 today, since part 1 at least seemed pretty straightforward. That was indeed the case, though part 2 was less fun. 
+I'm now done my exams! And still a few days behind. After skimming through the other problems, decided to do day 15 today, since part 1 at least seemed pretty straightforward. 
 
-It wasn't exactly hard, but it was finicky, and I was hemming and hawing about which data structure to use (linked lists? Hash maps with hash maps? Multiple sets of hash maps? Plain old arrays?). At first linked lists seemed like the obvious thing to use, but deletion and more importantly indexing had to be supported (or at least a way to find a certain value without having to traverse the whole list, because I had a feeling that would be a Pretty Bad Idea). Eventually I ended up using a hashmap of arrays, where I stored the indexes of the items in the arrays in _another_ hashmap so they could be found easier. I'm getting confused just writing it, but it _was_ kind of confusing. Oh, and deletions were just setting the array values to None so as not to mess up the indexing. I'm sure someone else has done this in like three lines in Haskell or something, but I am not one of those people...
+Part 2 wasn't exactly hard, but it was finicky, and I was hemming and hawing about which data structure to use. At first linked lists seemed like the obvious solution, but deletion and more importantly indexing had to be supported (or at least a way to find a certain value without having to traverse the whole list, because I had a feeling that would be a Bad Idea).
+
+Eventually I ended up with a hashmap of arrays, where I stored the indexes of the items in the arrays in _another_ hashmap so they could be found easier. Deletions were just setting the array values to None so as not to mess up the indexing. I'm sure someone else has done this in like three lines in Haskell or something, but I am not one of those people...
 
 Anyway, the point is that it works, so that's that for today. 
 
 
 ## [Day 9](https://adventofcode.com/2023/day/9) :star: :star:
 
-When I saw this problem I thought immediately that it could be done with one recursive function, though I was wooly on the details. Even now, just after writing it from my own head from scratch, it still feels a bit wibbly-wobbly, timey-wimey (which is kind of how I feel writing recursive functions a lot of the time). 
+When I saw this problem I thought immediately that it could be done with one recursive function, though I was wooly on the details. Even now, just after writing it, it still feels a bit wibbly-wobbly, timey-wimey. 
 
-One I got the first part done, the second part was pretty trivial (just switching some signs around basically). 
+Once I got the first part done, the second part was pretty trivial (just switching some signs around basically). 
 
-Because of some nasty winter flu and an exam I just wrote this morning (one more to go...), I actually completed this one on the 13th, so I'm rather behind, but will see how much I can do for the rest of the month.
+Because of some nasty winter flu and an exam I just wrote this morning (one more to go...), I actually completed this one on the 13th, so I'm a bit behind, but will see how much I can do for the rest of the month.
 
 ## [Day 8](https://adventofcode.com/2023/day/8) :star:
 
@@ -43,9 +45,13 @@ This one started out quite fun, actually, but I haven't found the time to proper
 
 ## [Day 3](https://adventofcode.com/2023/day/3)
 
-## [Day 2](https://adventofcode.com/2023/day/2) :star: :star:
+## [Day 2](https://adventofcode.com/2023/day/2) :star: :star: 
 
-Today was a pretty simple parsing and counting problem. The code speaks for itself, mostly. 
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white) ![Kotlin](https://img.shields.io/badge/Kotlin-0095D5?&style=for-the-badge&logo=kotlin&logoColor=white)
+
+Today was a pretty straightforward parsing and counting problem. 
+
+This is also the first time I've tried this in Kotlin, and I tried to do a more functional style instead of just copying the exact thing I did in Python. It's not perfect, but it works! 
 
 ## [Day 1](https://adventofcode.com/2023/day/1) :star: :star:
 
