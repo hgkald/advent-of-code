@@ -2,14 +2,18 @@
 
 Advent of Code is an annual advent calendar of programming puzzles. Each day unveils a new problem, and when the first part is solved, the second part of the problem is unlocked. Each part solved gains you stars. 
 
-I mostly do it for fun, and to practice solving different sorts of problems. 
+I participate for fun, and to practice solving different sorts of problems. 
 
 Hosted on [adventofcode.com](https://adventofcode.com/). 
 
 ## [2023](/2023) 
 
 ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![Kotlin](https://img.shields.io/badge/Kotlin-0095D5?&style=for-the-badge&logo=kotlin&logoColor=white)
+
 ![neovim](https://img.shields.io/badge/NeoVim-%2357A143.svg?&style=for-the-badge&logo=neovim&logoColor=white)
+![VSCode](https://img.shields.io/badge/Visual_Studio_Code-0078D4?style=for-the-badge&logo=visual%20studio%20code&logoColor=white
+)
 
 Take two! Going with Python again just to get the problems solved, but will see if I can add another language to try out. 
 
